@@ -1,0 +1,7 @@
+{
+  "blocked_requirements": [
+    "REQ-PDX-ENGINE-005"
+  ],
+  "scope": "Authenticated completed/interrupted dispatch recovery remains blocked; passing fail-closed tests is not feature completion.",
+  "other_upstream_requirements": "See docs/UPSTREAM_REQUIREMENTS.md for separately scoped Kernel capability gaps."
+}

@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdx-roadstar"
+version = "0.1.0.dev0"
+description = "Autonomous Dispatch & Detention Evidence Cockpit for RoadStar Hackathon 2026"
+license = "AGPL-3.0-or-later"
+requires-python = ">=3.11"
+dependencies = [
+  "prodocux==0.3.0rc4",
+  "pdx-artifact-engine==0.3.0a5",
+  "fastapi==0.141.1",
+  "uvicorn==0.34.0",
+  "pydantic==2.10.4",
+  "openpyxl>=3.1,<4",
+  "pymupdf==1.25.1",
+  "python-multipart>=0.0.20",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==9.1.1",
+  "httpx==0.28.1",
+]
+
+[tool.setuptools.packages.find]
+where = ["apps/api", "packages/roadstar_domain", "packages/roadstar_adapter_prodocux", "packages/roadstar_adapter_pdx", "simulator"]
+include = ["roadstar_*", "truck_simulator*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["apps/api", "packages", "simulator"]
